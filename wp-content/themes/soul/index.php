@@ -21,7 +21,6 @@
       $args = [
         'type' => 'list',
       ];
-      minilog($args, 'pagenatelinksに渡す引数')
       ?>
       <?= paginate_links($args); ?>
     </nav>

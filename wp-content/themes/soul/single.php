@@ -69,7 +69,6 @@
       <nav class="c-prevnext">
         <?php
         $prev_post = get_previous_post();
-        minilog($prev_post, '前の投稿');
         if ($prev_post):
         ?>
           <div class="c-prev">
@@ -81,7 +80,6 @@
 
         <?php
         $next_post = get_next_post();
-        minilog($prev_post, '次の投稿');
         if ($next_post):
         ?>
           <div class="c-next">
