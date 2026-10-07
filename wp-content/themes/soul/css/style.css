@@ -319,7 +319,9 @@ img {
   border-radius: 5px;
 }
 
-.p-staff__photo {
+.p-staff__photo,
+.p-staff__name,
+.p-staff__detail {
   width: 30%;
   height: auto;
 }
