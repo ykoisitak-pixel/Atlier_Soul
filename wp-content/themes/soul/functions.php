@@ -10,7 +10,7 @@ add_theme_support('post-thumbnails');
  */
 add_theme_support('menus');
 /**
- * <TOPページの投稿表示件数を5件にする>
+ * <TOPページの投稿表示件数を3件にする>
  */
 add_action('pre_get_posts', 'my_pre_get_posts');
 function my_pre_get_posts(mixed $query)
@@ -18,11 +18,24 @@ function my_pre_get_posts(mixed $query)
     if (is_admin() || !$query->is_main_query()) {
         return;
     }
-    if ($query->is_home()) {
-        $query->set('posts_per_page', 3);
+    // TOPページまたはカテゴリ一覧の場合
+    if ($query->is_home() || $query->is_archive()) {
+
+        //dateの新しい順に並べ替え
+        $query->set('meta_key', 'date');
+        $query->set('orderby', 'meta_value');
+        $query->set('order', 'DESC');
+        // TOPは3件
+        if ($query->is_home()) {
+            $query->set('posts_per_page', 3);
+        }
         return;
     }
 }
+
+
+
+
 /**
  * Contact form 7の時には整形機能をOffにする
  */

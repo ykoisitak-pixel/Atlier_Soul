@@ -125,8 +125,8 @@
     <h2>最新のイベント（3件）</h2>
     <p>私たちが主催する、最近のイベントをご紹介します。</p>
   </div>
-
   <?php if (have_posts()): ?>
+
     <div class="p-events__posts">
       <?php while (have_posts()): the_post(); ?>
         <?php get_template_part('template-parts/loop', 'event'); ?>
